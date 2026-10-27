@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment and Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+.dev.vars
+worker/.dev.vars
+server/.env
+
+# Build outputs
+dist/
+dist-ssr/
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Cloudflare Wrangler cache
+.wrangler/
+*/.wrangler/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
