@@ -5,10 +5,6 @@ compatibility_date = "2024-09-23"
 [assets]
 directory = "../client/dist"
 
-[vars]
-MICROSOFT_APP_ID = "your-bot-app-id"
-MICROSOFT_APP_PASSWORD = "your-bot-client-secret"
-MICROSOFT_TENANT_ID = "your-tenant-id"
 
 [[kv_namespaces]]
 binding = "TEAMS_BOT_KV"
