@@ -10,9 +10,6 @@ MICROSOFT_APP_ID = "your-bot-app-id"
 MICROSOFT_APP_PASSWORD = "your-bot-client-secret"
 MICROSOFT_TENANT_ID = "your-tenant-id"
 
-# Optional: If you want persistent conversations across edge worker reboots,
-# create a KV namespace: npx wrangler kv:namespace create "TEAMS_BOT_KV"
-# and uncomment below:
-# [[kv_namespaces]]
-# binding = "TEAMS_BOT_KV"
-# id = "your-kv-id"
+[[kv_namespaces]]
+binding = "TEAMS_BOT_KV"
+id = "b2fc697dbcda4b76a110d65625e6d5b8"
