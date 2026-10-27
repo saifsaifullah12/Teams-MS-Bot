@@ -209,25 +209,23 @@ export default {
             await saveConversation(env, conversation.id, record);
           }
 
-          // Auto-reply
-          try {
-            const replyActivity = {
-              type: 'message',
-              from: recipient,
-              recipient: from,
-              conversation: conversation,
-              replyToId: activityId,
-              text: `Echo from Bot Connector: Received "${text}"`
-            };
-            ctx.waitUntil(
-              replyToActivity(env, serviceUrl, conversation.id, activityId, replyActivity)
-                .then(() => addLog(env, 'OUTGOING', `Auto-replied to conversation: ${conversation.id}`))
-                .catch(err => addLog(env, 'ERROR', `Failed to reply: ${err.message}`))
-            );
-          } catch (err) {
-            addLog(env, 'ERROR', `Reply exception: ${err.message}`);
-          }
-        } else if (activity.type === 'conversationUpdate') {
+            // Auto-reply
+            try {
+              const replyActivity = {
+                type: 'message',
+                from: recipient,
+                recipient: from,
+                conversation: conversation,
+                replyToId: activityId,
+                text: `Echo from Bot Connector: Received "${text}"`
+              };
+              await replyToActivity(env, serviceUrl, conversation.id, activityId, replyActivity);
+              addLog(env, 'OUTGOING', `Auto-replied to conversation: ${conversation.id}`);
+            } catch (err) {
+              console.error('Failed to reply:', err);
+              addLog(env, 'ERROR', `Failed to reply: ${err.message}`);
+            }
+          } else if (activity.type === 'conversationUpdate') {
           const { serviceUrl, conversation, recipient } = activity;
           if (conversation && conversation.id && serviceUrl) {
             const record = {

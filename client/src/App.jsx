@@ -238,29 +238,7 @@ export default function App() {
             </form>
           </div>
 
-          {/* Card 2: Webhook Info for Teams Registration */}
-          <div className="glass-panel" style={{ padding: '24px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-              <Layers size={20} color="var(--accent-cyan)" />
-              <h2 style={{ fontSize: '1.15rem', fontWeight: '600' }}>Your Bot Webhook Endpoint</h2>
-            </div>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
-              Set this in your Azure Bot Configuration &rarr; Messaging endpoint:
-            </p>
-            <div style={{ 
-              background: '#090d16', 
-              padding: '10px 14px', 
-              borderRadius: '8px', 
-              border: '1px solid var(--border-color)',
-              fontSize: '0.85rem',
-              color: 'var(--accent-cyan)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}>
-              <code>https://your-public-url.ngrok-free.app/api/messages</code>
-            </div>
-          </div>
+
 
         </div>
 
