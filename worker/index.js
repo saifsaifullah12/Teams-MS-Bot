@@ -71,7 +71,8 @@ async function getAccessToken(env, customAppId, customAppPassword, customTenantI
 // Bot Connector Service (Replies & Proactive Messages)
 // -----------------------------------------------------------------
 async function replyToActivity(env, serviceUrl, conversationId, activityId, replyActivity, credentials = {}) {
-  const token = await getAccessToken(env, credentials.appId, credentials.appPassword, credentials.tenantId);
+  const creds = credentials || {};
+  const token = await getAccessToken(env, creds.appId, creds.appPassword, creds.tenantId);
   const cleanServiceUrl = serviceUrl.replace(/\/+$/, '');
   const url = `${cleanServiceUrl}/v3/conversations/${encodeURIComponent(conversationId)}/activities/${encodeURIComponent(activityId)}`;
 
@@ -88,7 +89,8 @@ async function replyToActivity(env, serviceUrl, conversationId, activityId, repl
 }
 
 async function sendProactiveMessage(env, serviceUrl, conversationId, activity, credentials = {}) {
-  const token = await getAccessToken(env, credentials.appId, credentials.appPassword, credentials.tenantId);
+  const creds = credentials || {};
+  const token = await getAccessToken(env, creds.appId, creds.appPassword, creds.tenantId);
   const cleanServiceUrl = serviceUrl.replace(/\/+$/, '');
   const url = `${cleanServiceUrl}/v3/conversations/${encodeURIComponent(conversationId)}/activities`;
 
